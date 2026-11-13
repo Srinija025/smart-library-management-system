@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LibraryBig, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import api from "../../services/api";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -12,31 +13,18 @@ export default function AdminLogin() {
   const [message, setMessage] = useState("");
 
   
+
 const handleSubmit = async (e) => {
   e.preventDefault();
-
   setMessage("");
 
   try {
-    const response = await fetch(
-      "http://localhost:5000/api/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email,
-          password
-        })
-      }
-    );
+    const response = await api.post("/auth/login", {
+      email,
+      password
+    });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Login failed");
-    }
+    const data = response.data;
 
     // Store admin authentication details
     sessionStorage.setItem("adminToken", data.token);
@@ -46,13 +34,16 @@ const handleSubmit = async (e) => {
       data.admin.admin_name
     );
 
-    // Redirect to React admin dashboard
+    // Redirect to admin dashboard
     navigate("/admin/dashboard");
 
   } catch (error) {
-    setMessage(error.message);
+    setMessage(
+      error.response?.data?.message || error.message || "Login failed"
+    );
   }
 };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 p-5">
