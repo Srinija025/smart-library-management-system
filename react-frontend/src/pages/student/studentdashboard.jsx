@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
-import studentApi from "../../services/studentApi";
+import studentApi from "../../services/studentapi";
 
 export default function StudentDashboard() {
     const navigate = useNavigate();

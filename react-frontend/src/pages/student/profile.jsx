@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import studentApi from "../../services/studentApi";
+import studentApi from "../../services/studentapi";
 
 function Profile() {
     const [student, setStudent] = useState(null);

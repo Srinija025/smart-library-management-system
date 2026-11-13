@@ -12,7 +12,7 @@ import {
     MessageSquareText
 } from "lucide-react";
 
-import studentApi from "../../services/studentApi";
+import studentApi from "../../services/studentapi";
 
 export default function MyRequests() {
     const [requests, setRequests] = useState([]);
