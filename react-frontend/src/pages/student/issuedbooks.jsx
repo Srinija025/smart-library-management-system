@@ -10,7 +10,7 @@ import {
     LoaderCircle
 } from "lucide-react";
 
-import studentApi from "../../services/studentApi";
+import studentApi from "../../services/studentapi";
 
 export default function IssuedBooks() {
     const [books, setBooks] = useState([]);
