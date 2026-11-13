@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BookOpen, Mail, Lock, Eye, EyeOff } from "lucide-react";
-import studentApi from "../../services/studentApi";
+import studentApi from "../../services/studentapi";
 
 export default function StudentLogin() {
 

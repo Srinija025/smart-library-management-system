@@ -8,7 +8,7 @@ import {
     CheckCircle,
     RefreshCw
 } from "lucide-react";
-import studentApi from "../../services/studentApi";
+import studentApi from "../../services/studentapi";
 
 export default function BrowseBooks() {
     const [books, setBooks] = useState([]);
